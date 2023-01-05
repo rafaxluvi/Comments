@@ -1,0 +1,56 @@
+-- =============================================
+-- Author: <Luviano, Rafael >
+-- Create date: <16 Nov 2022,>
+-- Description: < Comments Select_ByCreatedBy,>
+-- Code Reviewer: Damien Stella
+-- MODIFIED BY: 
+-- MODIFIED DATE:
+-- Code Reviewer: 
+-- Note: 
+-- =============================================
+
+
+
+ALTER proc [dbo].[Comments_Select_ByCreatedBy] 
+			@UserId int output
+
+AS
+
+
+/*
+
+DECLARE @UserId int = 8
+
+EXECUTE dbo.Comments_Select_ByCreatedBy 
+		            	@UserId  
+
+
+  */
+  BEGIN
+
+	SELECT c.[Id]
+		  ,c.[Subject]
+		  ,c.[Text]
+		  ,c.[ParentId]
+		  ,e.[Id] 
+		  ,e.[Name]
+		  ,c.[EntityId]
+		  ,c.[DateCreated]
+		  ,c.[DateModified]	  		  
+		  ,u.[Id]
+		  ,u.[Email]
+		  ,u.[FirstName]
+		  ,u.[LastName]
+		  ,u.[Mi]
+		  ,u.[AvatarUrl]  
+		  
+		  From dbo.Comments as c inner join dbo.Users as u
+		   on c.CreatedBy = u.Id
+		   inner join dbo.EntityTypes as e 
+		   on c.EntityTypeId = e.Id
+		  
+		
+		WHERE CreatedBy = @UserId
+
+
+END
