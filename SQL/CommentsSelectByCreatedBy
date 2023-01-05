@@ -1,8 +1,8 @@
 -- =============================================
 -- Author: <Luviano, Rafael >
--- Create date: <17 Nov 2022>
--- Description: <Comments select by enitityId>
--- Code Reviewer: Damian Stella
+-- Create date: <16 Nov 2022,>
+-- Description: < Comments Select_ByCreatedBy,>
+-- Code Reviewer: Damien Stella
 -- MODIFIED BY: 
 -- MODIFIED DATE:
 -- Code Reviewer: 
@@ -10,28 +10,25 @@
 -- =============================================
 
 
-ALTER proc [dbo].[Comments_Select_ByEntityId]
-			 @EntityId int
-			,@EntityTypeId int 
 
-/*
-
-	Declare @EntityId int = 2,
-			@EntityTypeId int = 1
-
-	Execute dbo.Comments_Select_ByEntityId
-						@EntityId
-						,@EntityTypeId
-
-
-*/
+ALTER proc [dbo].[Comments_Select_ByCreatedBy] 
+			@UserId int output
 
 AS
 
 
-BEGIN
- 
-		SELECT c.[Id]
+/*
+
+DECLARE @UserId int = 8
+
+EXECUTE dbo.Comments_Select_ByCreatedBy 
+		            	@UserId  
+
+
+  */
+  BEGIN
+
+	SELECT c.[Id]
 		  ,c.[Subject]
 		  ,c.[Text]
 		  ,c.[ParentId]
@@ -39,26 +36,21 @@ BEGIN
 		  ,e.[Name]
 		  ,c.[EntityId]
 		  ,c.[DateCreated]
-		  ,c.[DateModified]	    
+		  ,c.[DateModified]	  		  
 		  ,u.[Id]
 		  ,u.[Email]
 		  ,u.[FirstName]
 		  ,u.[LastName]
 		  ,u.[Mi]
 		  ,u.[AvatarUrl]  
-		  ,c.isDeleted
-
 		  
 		  From dbo.Comments as c inner join dbo.Users as u
 		   on c.CreatedBy = u.Id
 		   inner join dbo.EntityTypes as e 
 		   on c.EntityTypeId = e.Id
-
-			  WHERE (EntityId = @EntityId)
-					AND 
-					(EntityTypeId = @EntityTypeId)
-				  AND
-				  (isDeleted = 0)
+		  
+		
+		WHERE CreatedBy = @UserId
 
 
 END

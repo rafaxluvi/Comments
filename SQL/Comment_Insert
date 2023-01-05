@@ -22,7 +22,7 @@ ALTER proc [dbo].[Comments_Insert]
 
 /*
 
-Declare @Subject nvarchar(50) = ''
+DECLARE @Subject nvarchar(50) = ''
 	   ,@Text nvarchar(3000) = ''
 	   ,@ParentId int = null
 	   ,@EntityTypeId int= 0
@@ -30,7 +30,7 @@ Declare @Subject nvarchar(50) = ''
 	   ,@CreatedBy int = 0
 	   ,@Id int = 0 
 	   
-Execute dbo.Comments_Insert
+EXECUTE dbo.Comments_Insert
 			@Subject 
 		   ,@Text 
 		   ,@ParentId 
