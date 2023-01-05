@@ -1,2 +1,1 @@
-Comment section with replies
-# Comments
+Immersed is a web application for cyber security training and education for many different organizations. Immersed is an MVP and due to the proprietary nature of the code, only snippets of code are included. This repository includes .NET, SQL, and React code for the Comment section.
