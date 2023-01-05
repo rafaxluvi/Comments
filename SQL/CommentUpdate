@@ -1,0 +1,63 @@
+-- =============================================
+-- Author: <Luviano, Rafael >
+-- Create date: <16 Nov 2022,>
+-- Description: < Comments Update>
+-- Code Reviewer: Damian Stella
+-- MODIFIED BY: 
+-- MODIFIED DATE:
+-- Code Reviewer: 
+-- Note: 
+-- =============================================
+
+ALTER proc [dbo].[Comments_Update]
+		@Id int
+	   ,@Subject nvarchar(50)
+	   ,@Text nvarchar(3000)
+	   ,@EntityTypeId int
+	   ,@EntityId int
+	   ,@CreatedBy int
+	   
+	
+AS
+
+/*
+
+	DECLARE @Id int = 15
+		   ,@Subject nvarchar(50) = ''
+		   ,@Text nvarchar(3000) = ''
+		   ,@ParentId int = 0
+		   ,@EntityTypeId int = 0
+		   ,@EntityId int = 0
+		   ,@CreatedBy int = 0
+		   
+	
+	EXECUTE dbo.Comments_Update
+			@Id 
+		   ,@Subject 
+		   ,@Text 
+		   ,@ParentId 
+		   ,@EntityTypeId 
+		   ,@EntityId
+		   ,@CreatedBy
+		 
+
+		   select *
+		   from dbo.Comments
+		   
+		   select * 
+		   from dbo.Users 
+*/
+
+BEGIN
+
+	UPDATE [dbo].[Comments]
+	   SET [Subject] = @Subject
+        ,[Text] = @Text
+        ,[EntityTypeId] = @EntityTypeId
+        ,[EntityId] = @EntityId
+        ,[CreatedBy] = @CreatedBy
+        ,[DateModified] = GETUTCDATE()
+
+		WHERE Id = @Id
+
+ End
