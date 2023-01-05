@@ -1,18 +1,3 @@
-﻿using Sabio.Models.Domain.Comments;
-using Microsoft.AspNetCore.Mvc;
-using Microsoft.Extensions.Logging;
-using Sabio.Models.Requests.Comments;
-using Sabio.Services;
-using Sabio.Services.Interfaces;
-using Sabio.Web.Controllers;
-using Sabio.Web.Models.Responses;
-using System;
-using System.Collections.Generic;
-using Sabio.Models;
-using Microsoft.AspNetCore.Authorization;
-
-namespace Sabio.Web.Api.Controllers
-{
     [Route("api/comments")]
     [ApiController]
     public class CommentApiController : BaseApiController
