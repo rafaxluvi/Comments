@@ -20,8 +20,8 @@ ALTER proc [dbo].[Comments_Select_ByEntityId]
 			@EntityTypeId int = 1
 
 	Execute dbo.Comments_Select_ByEntityId
-							@EntityId
-							,@EntityTypeId
+						@EntityId
+						,@EntityTypeId
 
 
 */
