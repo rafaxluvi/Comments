@@ -22,7 +22,7 @@ AS
 
 /*
 
-	DECLARE @Id int = 15
+	DECLARE @Id int = 0
 		   ,@Subject nvarchar(50) = ''
 		   ,@Text nvarchar(3000) = ''
 		   ,@ParentId int = 0
@@ -40,12 +40,6 @@ AS
 		   ,@EntityId
 		   ,@CreatedBy
 		 
-
-		   select *
-		   from dbo.Comments
-		   
-		   select * 
-		   from dbo.Users 
 */
 
 BEGIN
